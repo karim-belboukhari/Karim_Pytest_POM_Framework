@@ -7,13 +7,14 @@ from selenium.webdriver.common.by import By
 import random
 import string
 import pytest
+import os
 
 class Test_Add_Candidate:
    
    email= Readconfig.getemail()
    password=Readconfig.getpassword()
    loggin= Logenerator.log_gen()
-   
+   screen2 = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', 'addUser.png')
    @pytest.mark.Sanity
    def test_addcandidate(self, setup):
        self.loggin.info("***********************test_addcandidate started**********************")
@@ -46,7 +47,7 @@ class Test_Add_Candidate:
            assert True
            self.loggin.info("***********************test_addcandidate Passed**********************")
        else:
-           driver.save_screenshot(r"C:\Users\karim.belboukhari\Project51\Screenshots\addUser.png")
+           driver.save_screenshot("Screenshots\\addUser.png")
            self.loggin.info("***********************test_addcandidate Failed **********************")
            assert False
 

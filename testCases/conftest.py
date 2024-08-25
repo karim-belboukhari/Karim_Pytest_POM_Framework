@@ -23,11 +23,7 @@ def setup(request):
         driver.implicitly_wait(10)  # Set implicit wait
         yield driver
     finally:
-        if driver:
-            driver.close(
-                
-            )
-            driver.quit()  # Quit the driver to close the browser
+        driver.quit()  # Quit the driver to close the browser
 
 ######### HTML Reports ###########
 

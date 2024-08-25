@@ -1,10 +1,11 @@
 import logging
+import os
 
 class Logenerator:
     
     def log_gen():
-        logging.basicConfig(filename=".\\karim.belboukhari\\Project51\\Logs\\automation.log",
-        format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+        log_file = os.path.join(os.path.dirname(__file__), '..', 'Logs', 'automation.log')
+        logging.basicConfig(filename= log_file , format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
         logger = logging.getLogger()
         logger.setLevel(logging.INFO)
         return logger

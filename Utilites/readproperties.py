@@ -1,7 +1,9 @@
 import configparser
+import os
 
+CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'Configurations', 'conf.ini')
 config = configparser.RawConfigParser()
-config.read(r"C:\Users\karim.belboukhari\Project51\Configurations\conf.ini")
+config.read(CONFIG_FILE_PATH)
 
 class Readconfig:
     def geturl():

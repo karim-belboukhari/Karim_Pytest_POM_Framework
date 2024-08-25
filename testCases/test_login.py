@@ -25,7 +25,7 @@ class Test_Login:
             assert True
             self.logger.info("***************logging page passed****************")
         else:
-            driver.save_screenshot(r"C:\Users\karim.belboukhari\Project51\Screenshots\myimage.png")
+            driver.save_screenshot(".\\Screenshots\\myimage.png")
             self.logger.info("***************logging page failed****************")
             assert False
             
