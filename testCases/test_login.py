@@ -4,9 +4,10 @@ from pageObjects.loginpage import Login
 from Utilites.readproperties import Readconfig
 from Utilites.customlogger import Logenerator
 import pytest
+import os
 
 class Test_Login:
-    
+    screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', 'myimage.png')
     email=Readconfig.getemail()
     password=Readconfig.getpassword()
     logger = Logenerator.log_gen()
@@ -25,7 +26,7 @@ class Test_Login:
             assert True
             self.logger.info("***************logging page passed****************")
         else:
-            driver.save_screenshot(".\\Screenshots\\myimage.png")
+            driver.save_screenshot(self.screen)
             self.logger.info("***************logging page failed****************")
             assert False
             
