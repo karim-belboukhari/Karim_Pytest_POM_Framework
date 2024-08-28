@@ -44,13 +44,7 @@ def pytest_metadata(metadata):
     metadata['Tester'] = 'Karim'
 
 @pytest.mark.optionalhook
-def pytest_html_results_summary(prefix,summary):
+def pytest_html_results_summary(prefix):
     prefix.append('<div class="custom-summary-header"><h2>Test Overview</h2></div>')
-    summary.append("<p>All major functionality tests have passed successfully.</p><p>Please review the detailed logs and screenshots for more information.</p>")
-    summary.append("""<h3>Detailed Test Analysis</h3>
-<p>The following tests were particularly notable:</p>
-<ul>
-    <li><strong>Login Functionality:</strong> Passed with no warnings.</li>
-</ul>
-""")
+
     
