@@ -22,7 +22,7 @@ class Test_Add_Candidate:
        Lp = Login(driver)
        Lp.set_username(self.email)
        Lp.set_password(self.password)
-       Lp.click_log()
+       Lp.click_login()
        self.loggin.info("***********************logging passed**********************")
        AddCand = Add_Candidate(driver)
        AddCand.set_candidate()

@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from Utilites.readproperties import Readconfig
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, ElementClickInterceptedException
 
 @pytest.fixture(params=["chrome", "firefox", "edge"], scope="function")
 def setup(request):

@@ -22,8 +22,8 @@ class Test_Login:
         login= Login(driver)
         login.set_username(self.email)
         login.set_password(self.password)
-        login.click_log()
-        if driver.title == "OrangeHRsM":
+        login.click_login()
+        if driver.title == "OrangeHRM":
             assert True
             self.logger.info("***************logging page passed****************")
         else:
@@ -32,11 +32,49 @@ class Test_Login:
             driver.save_screenshot(screen)
             self.logger.info("***************logging page failed****************")
             assert False
-    def test_invalid_login(self,setup):
-        pass       
-    def test_login_with_empty_fields(self,setup):
-        pass 
-    def test_login_with_max_length_username(self,setup):
-        pass 
-    def test_existing_functionality(self,setup):
-        pass        
+    def test_invalid_login(self,setup, request):
+            self.logger.info("***************verifying the logging page****************")
+        
+            driver = setup
+            login= Login(driver)
+            login.set_username("invalid_username")
+            login.set_password("invalid_password")
+            login.click_login()
+            
+            
+            
+            
+            if driver.title == "OrangeHRM":
+                
+                self.logger.info("***************logging page Failed****************")
+                test_name = request.node.name
+                screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
+                driver.save_screenshot(screen)
+                assert False
+            else:
+                assert True
+                test_name = request.node.name
+                screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
+                driver.save_screenshot(screen)
+                self.logger.info("***************logging page passed****************")
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+    #def test_login_with_empty_fields(self,setup):
+        #pass 
+    #def test_login_with_empty_Username(self,setup):
+        #pass
+    #def test_login_with_empty_password(self,setup):
+        #pass  
+    #def test_login_with_max_length_username(self,setup):
+       # pass 
+    #def test_existing_functionality(self,setup):
+       # pass        

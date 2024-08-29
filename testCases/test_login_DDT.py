@@ -33,7 +33,7 @@ class Test_Login_DDT:
             
             login.set_username(user)
             login.set_password(password)
-            login.click_log()
+            login.click_login()
             time.sleep(3)
             
             actual_url= driver.current_url
