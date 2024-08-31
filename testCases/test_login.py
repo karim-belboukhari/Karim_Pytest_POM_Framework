@@ -5,15 +5,17 @@ from Utilites.readproperties import Readconfig
 from Utilites.customlogger import Logenerator
 import pytest
 import os
+import allure
 
-
+@allure.severity(allure.severity_level.BLOCKER)
 class Test_Login:
     
     email=Readconfig.getemail()
     password=Readconfig.getpassword()
     logger = Logenerator.log_gen()
      
-    @pytest.mark.Sanity   
+    @pytest.mark.Sanity 
+  
     def test_valid_login(self,setup, request):
         
         self.logger.info("***************verifying the logging page****************")
@@ -44,7 +46,7 @@ class Test_Login:
             
             
             
-            if driver.title == "OrangeHRM":
+            if driver.title == "OrangeHRMs":
                 
                 self.logger.info("***************logging page Failed****************")
                 test_name = request.node.name
@@ -56,6 +58,8 @@ class Test_Login:
                 test_name = request.node.name
                 screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
                 driver.save_screenshot(screen)
+                with open(screen, "rb") as image_file:
+                    allure.attach(image_file.read(), name=f'Screenshot for {test_name}',  attachment_type=allure.attachment_type.PNG) 
                 self.logger.info("***************logging page passed****************")
                 
         

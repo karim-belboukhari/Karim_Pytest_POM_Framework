@@ -1,0 +1,3 @@
+[32mINFO    [0m root:test_add_candidate.py:22 ***********************test_addcandidate started**********************
+[32mINFO    [0m root:test_add_candidate.py:28 ***********************logging passed**********************
+[32mINFO    [0m root:test_add_candidate.py:50 ***********************test_addcandidate Passed**********************

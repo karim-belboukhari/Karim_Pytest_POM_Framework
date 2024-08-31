@@ -8,7 +8,9 @@ import random
 import string
 import pytest
 import os
+import allure
 
+@allure.severity(allure.severity_level.CRITICAL)
 class Test_Add_Candidate:
    
    email= Readconfig.getemail()
