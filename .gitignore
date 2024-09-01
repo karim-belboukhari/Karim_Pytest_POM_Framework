@@ -4,6 +4,6 @@ venv/
 # Ignore Python bytecode files
 __pycache__/
 
-# Ignore assets
-Reports/assets/
+# Ignore allure-results
+Reports/allure-results/
 
