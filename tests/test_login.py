@@ -1,8 +1,8 @@
 
 from selenium.webdriver.common.by import By
-from pageObjects.loginpage import Login
-from Utilites.readproperties import Readconfig
-from Utilites.customlogger import Logenerator
+from pages.login_page import Login
+from utilites.read_properties import ReadConfig
+from utilites.custom_logger import LoggingGenerator
 import pytest
 import os
 import allure
@@ -10,9 +10,9 @@ import allure
 @allure.severity(allure.severity_level.BLOCKER)
 class Test_Login:
     
-    email=Readconfig.getemail()
-    password=Readconfig.getpassword()
-    logger = Logenerator.log_gen()
+    email=ReadConfig.get_email()
+    password=ReadConfig.get_password()
+    logger = LoggingGenerator.log_gen()
      
     @pytest.mark.Sanity 
   
@@ -30,8 +30,8 @@ class Test_Login:
             self.logger.info("***************logging page passed****************")
         else:
             test_name = request.node.name
-            screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
-            driver.save_screenshot(screen)
+            screenshots_path = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+            driver.save_screenshot(screenshots_path)
             self.logger.info("***************logging page failed****************")
             assert False
     def test_invalid_login(self,setup, request):
@@ -42,23 +42,20 @@ class Test_Login:
             login.set_username("invalid_username")
             login.set_password("invalid_password")
             login.click_login()
-            
-            
-            
-            
+                     
             if driver.title == "OrangeHRMs":
                 
                 self.logger.info("***************logging page Failed****************")
                 test_name = request.node.name
-                screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
-                driver.save_screenshot(screen)
+                screenshots_path_2 = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+                driver.save_screenshot(screenshots_path_2)
                 assert False
             else:
                 assert True
                 test_name = request.node.name
-                screen = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', f'{test_name}.png')
-                driver.save_screenshot(screen)
-                with open(screen, "rb") as image_file:
+                screenshots_path_3 = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+                driver.save_screenshot(screenshots_path_3)
+                with open(screenshots_path_3, "rb") as image_file:
                     allure.attach(image_file.read(), name=f'Screenshot for {test_name}',  attachment_type=allure.attachment_type.PNG) 
                 self.logger.info("***************logging page passed****************")
                 

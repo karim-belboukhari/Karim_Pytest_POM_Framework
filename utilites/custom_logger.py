@@ -1,7 +1,7 @@
 import logging
 import os
 
-class Logenerator:
+class LoggingGenerator:
     
     def log_gen():
         log_file = os.path.join(os.path.dirname(__file__), '..', 'Logs', 'automation.log')

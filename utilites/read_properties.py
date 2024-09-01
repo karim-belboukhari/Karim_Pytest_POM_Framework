@@ -1,20 +1,20 @@
 import configparser
 import os
 
-CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'Configurations', 'conf.ini')
+CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'config', 'conf.ini')
 config = configparser.RawConfigParser()
 config.read(CONFIG_FILE_PATH)
 
-class Readconfig:
-    def geturl():
+class ReadConfig:
+    def get_url():
         url = config.get("common info", "link")
         return url
     
-    def getemail():
+    def get_email():
         email = config.get("common info", "email")
         return email
     
-    def getpassword():
+    def get_password():
         password = config.get("common info", "password")
         return password
     

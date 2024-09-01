@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from Utilites.readproperties import Readconfig
+from utilites.read_properties import ReadConfig
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, ElementClickInterceptedException
 
 @pytest.fixture(params=["chrome", "firefox", "edge"], scope="function")
@@ -19,7 +19,7 @@ def setup(request):
         raise ValueError(f"Unsupported browser: {browser}")
 
     try:
-        url = Readconfig.geturl()  # Ensure Readconfig.geturl() returns a valid URL
+        url = ReadConfig.get_url()  # Ensure Readconfig.geturl() returns a valid URL
         driver.get(url)
         driver.implicitly_wait(10)  # Set implicit wait
         yield driver

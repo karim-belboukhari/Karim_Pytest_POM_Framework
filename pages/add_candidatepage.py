@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class Add_Candidate:
+class AddCandidate:
     #locators
     recuitement_flow = "//*[@class='oxd-main-menu-item' and @href='/web/index.php/recruitment/viewRecruitmentModule']"
     add_cta= "//*[@type='button' and @class='oxd-button oxd-button--medium oxd-button--secondary']"
@@ -29,7 +29,7 @@ class Add_Candidate:
     def set_lastname(self, name2):
         self.driver.find_element(By.XPATH, self.lastname).clear()
         self.driver.find_element(By.XPATH, self.lastname).send_keys(name2)
-    def set_V_role(self, expected_Role):
+    def set_v_role(self, expected_Role):
         self.driver.find_element(By.XPATH, self.vacancy_Role_select).click()
         
         option_element = self.driver.find_elements(By.XPATH, "//*[@role='listbox' and @class='oxd-select-dropdown --positon-bottom']/div/span")

@@ -1,7 +1,7 @@
-from pageObjects.loginpage import Login
-from pageObjects.add_candidatepage import Add_Candidate
-from Utilites.customlogger import Logenerator
-from Utilites.readproperties import Readconfig
+from pages.login_page import Login
+from pages.add_candidatepage import AddCandidate
+from utilites.custom_logger import LoggingGenerator
+from utilites.read_properties import ReadConfig
 import time
 from selenium.webdriver.common.by import By
 import random
@@ -13,9 +13,9 @@ import allure
 @allure.severity(allure.severity_level.CRITICAL)
 class Test_Add_Candidate:
    
-   email= Readconfig.getemail()
-   password=Readconfig.getpassword()
-   loggin= Logenerator.log_gen()
+   email= ReadConfig.get_email()
+   password=ReadConfig.get_password()
+   loggin= LoggingGenerator.log_gen()
    screen2 = os.path.join(os.path.dirname(__file__), '..', 'Screenshots', 'addUser.png')
    @pytest.mark.Sanity
    def test_addcandidate(self, setup):
@@ -26,7 +26,7 @@ class Test_Add_Candidate:
        Lp.set_password(self.password)
        Lp.click_login()
        self.loggin.info("***********************logging passed**********************")
-       AddCand = Add_Candidate(driver)
+       AddCand = AddCandidate(driver)
        AddCand.set_candidate()
        AddCand.set_firstname("karim")
        AddCand.set_lastname("belboukhari")
