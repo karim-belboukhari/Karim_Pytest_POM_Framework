@@ -1,9 +1,0 @@
-[32mINFO    [0m root:test_login_DDT.py:18 ***************test_log_DDT****************
-[32mINFO    [0m root:test_login_DDT.py:19 ***************verifying the logging page DDT test****************
-[32mINFO    [0m root:test_login_DDT.py:44 *********************Passed*******************
-[32mINFO    [0m root:test_login_DDT.py:53 *********************Passed*******************
-[32mINFO    [0m root:test_login_DDT.py:53 *********************Passed*******************
-[32mINFO    [0m root:test_login_DDT.py:53 *********************Passed*******************
-[32mINFO    [0m root:test_login_DDT.py:59 *************************Login DDT Test Passed **************************
-[32mINFO    [0m root:test_login_DDT.py:64 *********************End of test_log_DDT*********************
-[32mINFO    [0m root:test_login_DDT.py:65 *************** completed the Test_Login_DDT ****************

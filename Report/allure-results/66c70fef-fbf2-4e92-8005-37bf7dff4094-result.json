@@ -1,1 +1,0 @@
-{"name": "test_addcandidate[chrome]", "status": "skipped", "parameters": [{"name": "setup", "value": "'chrome'"}], "start": 1725229438471, "stop": 1725229438471, "uuid": "3c728ace-879f-4eab-bb55-df46928846b1", "testCaseId": "f2b64ba14fad880b7fa63dad87fd7570", "fullName": "tests.test_add_candidate.Test_Add_Candidate#test_addcandidate"}

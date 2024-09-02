@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_login.py:38 ***************verifying the logging page****************
-[32mINFO    [0m root:test_login.py:63 ***************logging page passed****************

@@ -6,19 +6,19 @@ from utilites.custom_logger import LoggingGenerator
 import pytest
 import os
 import allure
+import time
 
 @allure.severity(allure.severity_level.BLOCKER)
-class Test_Login:
+class TestLogin:
     
     email=ReadConfig.get_email()
     password=ReadConfig.get_password()
     logger = LoggingGenerator.log_gen()
      
     @pytest.mark.Sanity 
-  
     def test_valid_login(self,setup, request):
         
-        self.logger.info("***************verifying the logging page****************")
+        self.logger.info("***************verifying the test_valid_login****************")
         
         driver = setup
         login= Login(driver)
@@ -27,50 +27,77 @@ class Test_Login:
         login.click_login()
         if driver.title == "OrangeHRM":
             assert True
-            self.logger.info("***************logging page passed****************")
+            self.logger.info("***************test_valid_login passed****************")
         else:
             test_name = request.node.name
             screenshots_path = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+            time.sleep(2)
             driver.save_screenshot(screenshots_path)
-            self.logger.info("***************logging page failed****************")
+            self.logger.info("***************test_valid_login failed****************")
             assert False
     def test_invalid_login(self,setup, request):
-            self.logger.info("***************verifying the logging page****************")
         
-            driver = setup
-            login= Login(driver)
-            login.set_username("invalid_username")
-            login.set_password("invalid_password")
-            login.click_login()
-                     
-            if driver.title == "OrangeHRMs":
+        
+        self.logger.info("***************verifying the test_invalid_login****************")
+        
+        driver = setup
+        login= Login(driver)
+        login.set_username("invalid_username")
+        login.set_password("invalid_password")
+        login.click_login()
+        
+        invalid_credentials_error = login.get_invalid_credentials_error()
+        
+        if invalid_credentials_error == "Invalid credentials" or "Informations d’identification non valides":
+            assert True
+            self.logger.info("***************test_invalid_login passed****************")
+        else:
+            self.logger.info("***************test_invalid_login failed****************")
+            test_name = request.node.name
+            screenshots = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+            time.sleep(2)
+            driver.save_screenshot(screenshots)
+            with open(screenshots, "rb") as image_file:
+                allure.attach(image_file.read(), name=f'Screenshot for {test_name}',  attachment_type=allure.attachment_type.PNG)
+            assert False
                 
-                self.logger.info("***************logging page Failed****************")
-                test_name = request.node.name
-                screenshots_path_2 = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
-                driver.save_screenshot(screenshots_path_2)
-                assert False
-            else:
-                assert True
-                test_name = request.node.name
-                screenshots_path_3 = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
-                driver.save_screenshot(screenshots_path_3)
-                with open(screenshots_path_3, "rb") as image_file:
-                    allure.attach(image_file.read(), name=f'Screenshot for {test_name}',  attachment_type=allure.attachment_type.PNG) 
-                self.logger.info("***************logging page passed****************")
-                
+      
+    def test_login_with_empty_fields(self,setup, request):
+        self.logger.info("***************verifying the test_login_with_empty_fields****************")
         
+        driver = setup
+        login= Login(driver)
+        login.set_username("")
+        login.set_password("")
+        login.click_login()
         
+        empty_username_error = login.get_empty_username_error()
+        empty_password_error = login.get_empty_password_error()
         
-        
-        
-        
-        
-        
-        
-       
-    #def test_login_with_empty_fields(self,setup):
-        #pass 
+        if (empty_username_error in ["Requiredsz", "Obligatoiresz"]) and (empty_password_error in ["Required", "Obligatoire"]):
+            
+            assert True
+            self.logger.info("***************test_login_with_empty_fields passed****************")
+        else:
+            self.logger.info("***************test_login_with_empty_fields failed****************")
+            test_name = request.node.name
+            screenshots = os.path.join(os.path.dirname(__file__), '..', 'screenshots', f'{test_name}.png')
+            time.sleep(2)
+            driver.save_screenshot(screenshots)
+            with open(screenshots, "rb") as image_file:
+                allure.attach(image_file.read(), name=f'Screenshot for {test_name}',  attachment_type=allure.attachment_type.PNG)
+            assert False
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
     #def test_login_with_empty_Username(self,setup):
         #pass
     #def test_login_with_empty_password(self,setup):

@@ -7,7 +7,7 @@ import time
 import pytest
 
 
-class Test_Login_DDT:
+class TestLoginDDT:
     
     path = ".\test_data\\loginData.xlsx"
     logger = LoggingGenerator.log_gen()

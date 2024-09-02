@@ -11,7 +11,7 @@ import os
 import allure
 
 @allure.severity(allure.severity_level.CRITICAL)
-class Test_Add_Candidate:
+class TestAddCandidate:
    
    email= ReadConfig.get_email()
    password=ReadConfig.get_password()
