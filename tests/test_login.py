@@ -74,7 +74,7 @@ class TestLogin:
         empty_username_error = login.get_empty_username_error()
         empty_password_error = login.get_empty_password_error()
         
-        if (empty_username_error in ["Requiredsz", "Obligatoiresz"]) and (empty_password_error in ["Required", "Obligatoire"]):
+        if (empty_username_error in ["Required", "Obligatoire"]) and (empty_password_error in ["Required", "Obligatoire"]):
             
             assert True
             self.logger.info("***************test_login_with_empty_fields passed****************")
