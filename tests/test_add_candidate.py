@@ -1,7 +1,7 @@
 from pages.login_page import Login
 from pages.add_candidatepage import AddCandidate
-from utilites.custom_logger import LoggingGenerator
-from utilites.read_properties import ReadConfig
+from utilities.custom_logger import LoggingGenerator
+from utilities.read_properties import ReadConfig
 import time
 from selenium.webdriver.common.by import By
 import random

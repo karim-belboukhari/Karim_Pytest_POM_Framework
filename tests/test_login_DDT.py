@@ -1,8 +1,8 @@
 
 from selenium.webdriver.common.by import By
 from pages.login_page import Login
-from utilites.custom_logger import LoggingGenerator
-from utilites import xutils
+from utilities.custom_logger import LoggingGenerator
+from utilities import xutils
 import time
 import pytest
 

@@ -1,8 +1,8 @@
 
 from selenium.webdriver.common.by import By
 from pages.login_page import Login
-from utilites.read_properties import ReadConfig
-from utilites.custom_logger import LoggingGenerator
+from utilities.read_properties import ReadConfig
+from utilities.custom_logger import LoggingGenerator
 import pytest
 import os
 import allure
