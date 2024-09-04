@@ -30,18 +30,18 @@ class TestAddCandidate:
        AddCand.set_candidate()
        AddCand.set_firstname("karim")
        AddCand.set_lastname("belboukhari")
-       AddCand.set_V_role("Senior QA Lead")
+       AddCand.set_v_role("Senior QA Lead")
        self.emaill = random_generator() +"@gmail.com"
        AddCand.set_email(self.emaill)
        time.sleep(3)
        #AddCand.set_datepiker("2023-26-08")
        AddCand.set_note("Test for the note section")
        AddCand.set_checkbox()
-       AddCand.Save_candidate()
+       AddCand.save_candidate()
        time.sleep(5)
        expectedresult = "karim belboukhari"
        
-       expectedfild = driver.find_element(By.XPATH, "//*[@class='oxd-grid-3 orangehrm-full-width-grid']/div[1]/div[1]/div[2]/child::p")
+       expectedfild = driver.find_element(By.XPATH, '//*[@data-v-7b563373 and @class="oxd-text oxd-text--p" and text()="karim  belboukhari"]')
     
        print(expectedfild.text)
        if expectedfild.text == expectedresult :

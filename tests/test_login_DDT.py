@@ -9,7 +9,7 @@ import pytest
 
 class TestLoginDDT:
     
-    path = ".\test_data\\loginData.xlsx"
+    path = r".\test_data\loginData.xlsx"
     logger = LoggingGenerator.log_gen()
       
     @pytest.mark.regression
