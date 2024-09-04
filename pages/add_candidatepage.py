@@ -3,13 +3,13 @@ from selenium.webdriver.common.by import By
 
 class AddCandidate:
     #locators
-    recuitement_flow = "//*[@class='oxd-main-menu-item' and @href='/web/index.php/recruitment/viewRecruitmentModule']"
+    recuitement_flow = "//a[@href='/web/index.php/recruitment/viewRecruitmentModule']"
     add_cta= "//*[@type='button' and @class='oxd-button oxd-button--medium oxd-button--secondary']"
     firstname= "//*[@name='firstName']"
     lastname= "//*[@name='lastName']"
     vacancy_Role_select= "//*[@class='oxd-select-text--after']/child::i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']"
-    email='//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/input'
-    contact='//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/input'
+    email="//label[text()='Email']/following::input[@placeholder='Type here'][1]"
+    contact="//label[text()='Contact Number']/following::input[@placeholder='Type here'][1]"
     date_triger= '//*[@class="oxd-icon bi-calendar oxd-date-input-icon"]'
     date_piker= "//*[@class='oxd-input oxd-input--active' and @placeholder='yyyy-dd-mm']"
     notes="//*[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']"
