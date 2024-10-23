@@ -7,3 +7,6 @@ __pycache__/
 # Ignore allure-results
 Reports/allure-results/
 
+# Ignore idea
+.idea
+
