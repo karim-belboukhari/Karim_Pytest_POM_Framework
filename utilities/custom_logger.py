@@ -16,7 +16,8 @@ class LoggingGenerator:
             filename=log_file,
             format='%(asctime)s: %(levelname)s: %(message)s',
             datefmt='%m/%d/%Y %I:%M:%S %p',
-            level=logging.INFO
+            level=logging.INFO,
+            filemode="w"
         )
 
         logger = logging.getLogger()

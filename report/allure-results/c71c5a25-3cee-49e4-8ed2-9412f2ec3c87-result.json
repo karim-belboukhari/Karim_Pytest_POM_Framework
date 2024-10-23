@@ -1,0 +1,1 @@
+{"name": "test_valid_login[chrome]", "status": "skipped", "parameters": [{"name": "setup", "value": "'chrome'"}], "start": 1729648853609, "stop": 1729648853609, "uuid": "1601c5c3-6b61-4ca5-97c0-94492b446be4", "testCaseId": "e7f254b9bfd5f2bc8d4a1ffa6dc7aebb", "fullName": "tests.test_login.TestLogin#test_valid_login"}
