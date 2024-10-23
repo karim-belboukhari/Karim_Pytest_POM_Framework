@@ -1,1 +1,1 @@
-This framework is designed to demonstrate to new automation enthusiasts how to create a simple and easy hybrid automation framework using Python and pytest.
+This framework is designed to show new automation enthusiasts how to create a POM hybrid automation framework using Python and pytest
