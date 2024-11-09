@@ -1,0 +1,1 @@
+{"name": "test_addcandidate[edge]", "status": "skipped", "parameters": [{"name": "setup", "value": "'edge'"}], "start": 1731177585199, "stop": 1731177585199, "uuid": "7d1bd0b5-e038-4c3b-922e-01dfaa92e116", "testCaseId": "40d4f94854223d518707fee36fea6c85", "fullName": "tests.test_add_candidate.TestAddCandidate#test_addcandidate"}

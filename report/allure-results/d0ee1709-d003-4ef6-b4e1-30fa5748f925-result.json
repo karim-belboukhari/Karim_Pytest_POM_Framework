@@ -1,0 +1,1 @@
+{"name": "test_addcandidate[firefox]", "status": "passed", "parameters": [{"name": "setup", "value": "'firefox'"}], "start": 1731178637362, "stop": 1731178639757, "uuid": "b45553e5-ef9e-45d2-bb96-afe940fd042f", "testCaseId": "40d4f94854223d518707fee36fea6c85", "fullName": "tests.test_add_candidate.TestAddCandidate#test_addcandidate"}

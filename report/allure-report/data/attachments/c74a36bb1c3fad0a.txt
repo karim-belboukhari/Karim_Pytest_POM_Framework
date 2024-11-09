@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_login.py:66 ***************verifying the test_login_with_empty_fields****************
-[32mINFO    [0m root:test_login.py:82 ***************test_login_with_empty_fields failed****************
